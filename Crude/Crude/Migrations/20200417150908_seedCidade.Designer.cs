@@ -4,14 +4,16 @@ using Crude.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Crude.Migrations
 {
     [DbContext(typeof(CrudeDB))]
-    partial class CrudeDBModelSnapshot : ModelSnapshot
+    [Migration("20200417150908_seedCidade")]
+    partial class seedCidade
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -108,17 +110,6 @@ namespace Crude.Migrations
                     b.HasIndex("CidadeId");
 
                     b.ToTable("Espacos");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Classificacao = 5.0,
-                            Latitude = 39.600000000000001,
-                            Longitude = -8.4000000000000004,
-                            NomeConhecido = "Aka",
-                            NomeOficial = "Café Acadêmico"
-                        });
                 });
 
             modelBuilder.Entity("Crude.Models.Nota", b =>
@@ -169,13 +160,6 @@ namespace Crude.Migrations
                     b.HasIndex("QuestionarioId");
 
                     b.ToTable("Perguntas");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Texto = "Olá Mundo!!! Quem és tu?"
-                        });
                 });
 
             modelBuilder.Entity("Crude.Models.Questionario", b =>
@@ -205,14 +189,6 @@ namespace Crude.Migrations
                     b.HasIndex("QuestionariosId");
 
                     b.ToTable("Questionarios");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Nome = "Quen és tu?",
-                            QuestionarioFK = 0
-                        });
                 });
 
             modelBuilder.Entity("Crude.Models.Resposta", b =>
